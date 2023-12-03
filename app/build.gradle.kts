@@ -50,6 +50,9 @@ android {
 }
 
 dependencies {
+
+    implementation(project(":data"))
+
     implementation(libs.kotlin.stdlib)
     implementation(libs.kotlin.stdlib.jdk)
 
@@ -59,6 +62,7 @@ dependencies {
     implementation(libs.activity.compose)
     implementation(libs.bundles.compose)
     implementation(libs.compose.material3)
+    implementation(libs.lifecycle.viewModel.compose)
 
     testImplementation(libs.test.junit)
     androidTestImplementation(libs.bundles.android.tests)
@@ -67,4 +71,11 @@ dependencies {
     // Dagger Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+    implementation(libs.hilt.lifecycle.viewModel)
+    implementation(libs.hilt.compose)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.moshi)
+    implementation(libs.logging.interceptor)
 }

@@ -1,13 +1,10 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("dagger.hilt.android.plugin")
-    kotlin("kapt")
-
 }
 
 android {
-    namespace = "com.sithuheinn.mm.data"
+    namespace = "com.sithuheinn.mm.designsystems"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -44,13 +41,4 @@ dependencies {
     testImplementation(libs.test.junit)
     androidTestImplementation(libs.android.test.junit)
     androidTestImplementation(libs.android.test.espresso.core)
-
-    // Dagger Hilt
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
-
-    // Retrofit
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.moshi)
-    implementation(libs.logging.interceptor)
 }

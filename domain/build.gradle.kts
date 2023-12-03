@@ -1,15 +1,52 @@
 plugins {
-    id("java-library")
-    id("org.jetbrains.kotlin.jvm")
-
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_7
-    targetCompatibility = JavaVersion.VERSION_1_7
+android {
+    namespace = "com.sithuheinn.mm.domain"
+    compileSdk = libs.versions.compileSdk.get().toInt()
+
+    defaultConfig {
+        minSdk = libs.versions.minSdk.get().toInt()
+        targetSdk = libs.versions.targetSdk.get().toInt()
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
 
-    implementation(libs.javax.inject)
+    implementation(project(":designSystems"))
+    implementation(libs.androidx.ktx)
+    implementation(libs.material)
+
+    testImplementation(libs.test.junit)
+    androidTestImplementation(libs.android.test.junit)
+    androidTestImplementation(libs.android.test.espresso.core)
+
+    implementation(libs.threetenbp)
+
+    // Dagger Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 }
