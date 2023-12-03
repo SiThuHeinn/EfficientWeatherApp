@@ -16,6 +16,8 @@ lifecycleRuntimeKtx = "2.3.1"
 activityCompose = "1.5.1"
 compose = "1.5.4"
 materail3 = "1.1.2"
+hiltVersion = "2.44"
+javaxInject = "1"
 
 [libraries]
 androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -37,6 +39,10 @@ compose-material3 = { group = "androidx.compose.material3", name = "material3", 
 debug-test-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "compose" }
 debug-test-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "compose"}
 
+## Dagger Hilt
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hiltVersion" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hiltVersion"}
+javax-inject = { group = "javax.inject", name = "javax.inject", version.ref = "javaxInject"}
 
 [bundles]
 compose = ["compose-ui", "compose-ui-graphic", "compose-ui-tooling-preview"]
