@@ -1,0 +1,49 @@
+[versions]
+minSdk = "22"
+compileSdk = "34"
+targetSdk = "34"
+
+androidGradlePlugin = "8.0.2"
+kotlinAndroid = "1.7.20"
+coreKtx = "1.8.0"
+stdblibJdk = "1.8.0"
+appcompat = "1.6.1"
+material = "1.10.0"
+junit = "4.13.2"
+androidJunit = "1.1.5"
+espressoCore = "3.5.1"
+lifecycleRuntimeKtx = "2.3.1"
+activityCompose = "1.5.1"
+compose = "1.5.4"
+materail3 = "1.1.2"
+
+[libraries]
+androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "stdblibJdk" }
+kotlin-stdlib-jdk = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "stdblibJdk" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+test-junit = { group = "junit", name = "junit", version.ref = "junit" }
+android-test-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidJunit" }
+android-test-espresso-core = { group = "androidx.text.espresso", name = "espresso-core", version.ref = "espressoCore" }
+
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "compose" }
+compose-ui-graphic = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "compose" }
+compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "compose" }
+android-compose-ui-test = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "compose" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "materail3" }
+debug-test-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "compose" }
+debug-test-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "compose"}
+
+
+[bundles]
+compose = ["compose-ui", "compose-ui-graphic", "compose-ui-tooling-preview"]
+android-tests = ["android-test-junit", "android-test-espresso-core", "android-compose-ui-test"]
+debug-test = ["debug-test-compose-ui-tooling", "debug-test-compose-ui-test-manifest"]
+
+
+
+
+[plugins]

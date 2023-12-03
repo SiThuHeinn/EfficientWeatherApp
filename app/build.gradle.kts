@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.sithuheinn.mm.effiecientweatherapp"
-    compileSdk = 34
+    compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
         applicationId = "com.sithuheinn.mm.effiecientweatherapp"
-        minSdk = 24
-        targetSdk = 34
+        minSdk = libs.versions.minSdk.get().toInt()
+        targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
 
@@ -48,20 +48,17 @@ android {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0")
+    implementation(libs.kotlin.stdlib)
+    implementation(libs.kotlin.stdlib.jdk)
 
-    implementation("androidx.core:core-ktx:1.8.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
-    implementation("androidx.activity:activity-compose:1.5.1")
-    implementation("androidx.compose.ui:ui:1.5.4")
-    implementation("androidx.compose.ui:ui-graphics:1.5.4")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.5.4")
-    implementation("androidx.compose.material3:material3:1.1.2")
+    implementation(libs.androidx.ktx)
+    implementation(libs.lifecycle.runtime.ktx)
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.4")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.5.4")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.4")
+    implementation(libs.activity.compose)
+    implementation(libs.bundles.compose)
+    implementation(libs.compose.material3)
+
+    testImplementation(libs.test.junit)
+    androidTestImplementation(libs.bundles.android.tests)
+    debugImplementation(libs.bundles.debug.test)
 }
