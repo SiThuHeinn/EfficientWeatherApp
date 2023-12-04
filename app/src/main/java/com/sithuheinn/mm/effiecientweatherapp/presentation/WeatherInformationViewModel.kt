@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class WeatherInformationScreenViewModel @Inject constructor(
+class WeatherInformationViewModel @Inject constructor(
     private val repository: WeatherRepository
 ): ViewModel() {
 
@@ -28,4 +28,6 @@ class WeatherInformationScreenViewModel @Inject constructor(
             }
         }
     }
+
+    fun poke() {}
 }

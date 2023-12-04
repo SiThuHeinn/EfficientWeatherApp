@@ -79,4 +79,6 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.moshi)
     implementation(libs.logging.interceptor)
+
+    implementation(libs.threetenbp)
 }
