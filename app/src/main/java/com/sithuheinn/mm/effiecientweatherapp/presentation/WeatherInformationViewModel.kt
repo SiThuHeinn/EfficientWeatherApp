@@ -1,33 +1,55 @@
 package com.sithuheinn.mm.effiecientweatherapp.presentation
 
 import android.util.Log
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sithuheinn.mm.domain.Resource
 import com.sithuheinn.mm.domain.repository.WeatherRepository
+import com.sithuheinn.mm.location.provider.LocationProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class WeatherInformationViewModel @Inject constructor(
-    private val repository: WeatherRepository
+    private val repository: WeatherRepository,
+    private val locationProvider: LocationProvider
 ): ViewModel() {
 
-    init {
+    var state by mutableStateOf(UiDataState())
+        private set
+
+
+    fun fetchWeatherInfo() {
         viewModelScope.launch {
-            val data = repository.getWeatherData(16.771, 96.1993)
-            when(data) {
-                is Resource.Error -> {
-                    Log.d("WeatherVM", "${data.message}")
+            state = state.copy(isLoading = true, error = null)
+
+            locationProvider.getCurrentLocation()?.let { location ->
+                when (val result = repository.getWeatherData(location.latitude, location.longitude)) {
+                    is Resource.Success -> {
+                        state = state.copy(
+                            displayableWeatherDataModel = result.data,
+                            isLoading = false,
+                            error = null
+                        )
+                    }
+
+                    is Resource.Error -> {
+                        state = state.copy(
+                            displayableWeatherDataModel = null,
+                            isLoading = false,
+                            error = result.message
+                        )
+                    }
                 }
 
-                is Resource.Success -> {
-                    Log.d("WeatherVM", "${data.data?.currentWeatherData}")
-                }
+            } ?: kotlin.run {
+                state = state.copy(isLoading = false, error = "Location data is not available. Please make sure to grant permissions and enable GPS.")
             }
         }
     }
 
-    fun poke() {}
 }

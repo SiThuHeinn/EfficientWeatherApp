@@ -25,7 +25,7 @@ logginInterceptor = "5.0.0-alpha.3"
 viewModelCompose = "2.4.1"
 androidxAnnotation = "1.7.0"
 threetenbpVersion = "1.4.6"
-
+playServicesLocationVersion = "20.0.0"
 
 [libraries]
 androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -64,7 +64,8 @@ logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-intercep
 
 threetenbp = { group = "com.jakewharton.threetenabp", name = "threetenabp", version.ref = "threetenbpVersion" }
 
-
+## gms play-service
+gms-play-service = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocationVersion" }
 
 [bundles]
 compose = ["compose-ui", "compose-ui-graphic", "compose-ui-tooling-preview"]

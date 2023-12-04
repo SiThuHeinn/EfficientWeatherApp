@@ -53,6 +53,7 @@ dependencies {
 
     implementation(project(":data"))
     implementation(project(":domain"))
+    implementation(project(":location"))
     implementation(project(":designSystems"))
 
     implementation(libs.kotlin.stdlib)
