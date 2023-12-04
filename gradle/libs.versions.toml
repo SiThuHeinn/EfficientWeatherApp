@@ -53,6 +53,7 @@ androidx-annotation = { group = "androidx.annotation", name = "annotation-jvm", 
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hiltVersion" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hiltVersion"}
 hilt-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltCompose" }
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltCompose"}
 hilt-lifecycle-viewModel = { group = "androidx.hilt", name = "hilt-lifecycle-viewmodel", version.ref = "hiltLifecycleViewModel" }
 javax-inject = { group = "javax.inject", name = "javax.inject", version.ref = "javaxInject"}
 

@@ -1,8 +1,20 @@
 package com.sithuheinn.mm.data.remote.dto
 
 import com.squareup.moshi.Json
+import retrofit2.converter.moshi.MoshiConverterFactory
 
-
+/**
+ * Weather data response
+ *
+ * In this project, [MoshiConverterFactory] is used to parsed to response from api call.
+ * @property time
+ * @property temperatures
+ * @property weatherCodes
+ * @property pressures
+ * @property windSpeeds
+ * @property humidities
+ * @constructor Create empty Weather data response
+ */
 data class WeatherDataResponse(
     val time: List<String>,
     @field:Json(name = "temperature_2m")

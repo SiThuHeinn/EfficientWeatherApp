@@ -2,6 +2,7 @@ package com.sithuheinn.mm.data.remote.api
 
 import com.sithuheinn.mm.data.remote.dto.WeatherDataResponse
 import com.sithuheinn.mm.data.remote.dto.WeatherResponse
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -12,5 +13,5 @@ interface WeatherApi {
     suspend fun getWeatherData(
         @Query("latitude") lat: Double,
         @Query("longitude") long: Double
-    ): WeatherResponse
+    ): Response<WeatherResponse>
 }

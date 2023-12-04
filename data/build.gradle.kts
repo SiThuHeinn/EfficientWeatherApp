@@ -38,6 +38,9 @@ android {
 
 dependencies {
 
+    implementation(project(":domain"))
+    implementation(project(":designSystems"))
+
     implementation(libs.androidx.ktx)
     implementation(libs.material)
 
@@ -53,4 +56,6 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.moshi)
     implementation(libs.logging.interceptor)
+
+    implementation(libs.threetenbp)
 }

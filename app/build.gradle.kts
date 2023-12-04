@@ -52,6 +52,8 @@ android {
 dependencies {
 
     implementation(project(":data"))
+    implementation(project(":domain"))
+    implementation(project(":designSystems"))
 
     implementation(libs.kotlin.stdlib)
     implementation(libs.kotlin.stdlib.jdk)
@@ -71,8 +73,7 @@ dependencies {
     // Dagger Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
-    implementation(libs.hilt.lifecycle.viewModel)
-    implementation(libs.hilt.compose)
+    implementation(libs.hilt.navigation.compose)
 
     // Retrofit
     implementation(libs.retrofit)
