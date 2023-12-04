@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.sithuheinn.mm.effiecientweatherapp.presentation.WeatherInformationViewModel
 import com.sithuheinn.mm.effiecientweatherapp.presentation.composables.WeatherInfoCard
 import com.sithuheinn.mm.effiecientweatherapp.ui.theme.DarkBlue
@@ -40,33 +41,30 @@ class MainActivity : ComponentActivity() {
             vm.fetchWeatherInfo()
         }
 
-        permissionLauncher.launch(arrayOf(
-            Manifest.permission.ACCESS_COARSE_LOCATION,
-            Manifest.permission.ACCESS_FINE_LOCATION,
-        ))
+        permissionLauncher.launch(
+            arrayOf(
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+            )
+        )
 
         setContent {
             EffiecientWeatherAppTheme {
+                val vm: WeatherInformationViewModel = hiltViewModel()
                 Box(
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(DarkBlue.copy(alpha = 0.5f))
-                    ) {
-                        WeatherInfoCard(
-                            state = vm.state,
-                            backgroundColor = DeepBlue.copy(alpha = 0.5f),
-                        )
-                    }
-                    
+
+                    WeatherInfoCard(
+                        state = vm.state
+                    )
+
                     if (vm.state.isLoading) {
                         CircularProgressIndicator(
                             modifier = Modifier.align(Alignment.Center)
                         )
                     }
-                    
+
                     vm.state.error?.let { error ->
                         Text(
                             text = error,

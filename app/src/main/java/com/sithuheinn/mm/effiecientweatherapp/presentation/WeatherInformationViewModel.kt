@@ -31,6 +31,9 @@ class WeatherInformationViewModel @Inject constructor(
     var state by mutableStateOf(UiDataState())
         private set
 
+    init {
+        Log.d("WeatherVM", "initiated.")
+    }
 
     fun fetchWeatherInfo() {
         viewModelScope.launch {
@@ -59,6 +62,11 @@ class WeatherInformationViewModel @Inject constructor(
                 state = state.copy(isLoading = false, error = "Location data is not available. Please make sure to grant permissions and enable GPS.")
             }
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.d("WeatherVM", "onCleared")
     }
 
 }

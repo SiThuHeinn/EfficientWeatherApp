@@ -40,6 +40,7 @@ dependencies {
     implementation(project(":designSystems"))
     implementation(libs.androidx.ktx)
     implementation(libs.material)
+    implementation(libs.compose.ui.graphic)
 
     testImplementation(libs.test.junit)
     androidTestImplementation(libs.android.test.junit)

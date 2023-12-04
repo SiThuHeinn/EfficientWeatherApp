@@ -31,14 +31,25 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        compose = true
+    }
 }
 
 dependencies {
 
+    implementation(libs.kotlin.stdlib)
+    implementation(libs.kotlin.stdlib.jdk)
+
     implementation(libs.androidx.ktx)
-    implementation(libs.material)
+    implementation(libs.lifecycle.runtime.ktx)
+
+    implementation(libs.activity.compose)
+    implementation(libs.bundles.compose)
+    implementation(libs.compose.material3)
+    implementation(libs.lifecycle.viewModel.compose)
 
     testImplementation(libs.test.junit)
-    androidTestImplementation(libs.android.test.junit)
-    androidTestImplementation(libs.android.test.espresso.core)
+    androidTestImplementation(libs.bundles.android.tests)
+    debugImplementation(libs.bundles.debug.test)
 }
