@@ -13,12 +13,21 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * ViewModel class responsible for managing and providing weather-related information to the UI.
+ *
+ * @property repository The repository for fetching weather data.
+ * @property locationProvider The provider for obtaining the current location.
+ */
 @HiltViewModel
 class WeatherInformationViewModel @Inject constructor(
     private val repository: WeatherRepository,
     private val locationProvider: LocationProvider
 ): ViewModel() {
 
+    /**
+     * State property representing the current UI state related to weather information.
+     */
     var state by mutableStateOf(UiDataState())
         private set
 

@@ -82,4 +82,7 @@ dependencies {
     implementation(libs.logging.interceptor)
 
     implementation(libs.threetenbp)
+
+    // GPS Location
+    implementation(libs.gms.play.service)
 }
