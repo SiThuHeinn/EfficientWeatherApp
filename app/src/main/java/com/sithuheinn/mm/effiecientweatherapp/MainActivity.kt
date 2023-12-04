@@ -50,7 +50,6 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             EffiecientWeatherAppTheme {
-                val vm: WeatherInformationViewModel = hiltViewModel()
                 Box(
                     modifier = Modifier.fillMaxSize()
                 ) {

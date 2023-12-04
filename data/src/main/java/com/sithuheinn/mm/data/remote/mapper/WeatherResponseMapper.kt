@@ -77,7 +77,13 @@ fun WeatherResponse.transformToDisplayableWeatherDataModel(): DisplayableWeather
 
     // Find the current weather data by looking at the first day and matching the hour.
     val currentWeatherData = dataAsMap[0]?.find {
-        val hour = if(now.minute < 30) now.hour else now.hour + 1
+        val hour = if(now.minute < 30) {
+            now.hour
+        } else if (now.hour == 23) {
+            now.hour
+        } else {
+            now.hour + 1
+        }
         it.time.hour == hour
     }
     return DisplayableWeatherDataModel(

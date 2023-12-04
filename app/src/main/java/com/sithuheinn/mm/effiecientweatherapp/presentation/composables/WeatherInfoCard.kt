@@ -42,7 +42,6 @@ fun WeatherInfoCard(
     modifier: Modifier = Modifier
 ) {
 
-    val now = LocalDateTime.now()
     val backgroundColor = state
         .displayableWeatherDataModel
         ?.currentWeatherData
