@@ -2,6 +2,7 @@ package com.sithuheinn.mm.effiecientweatherapp.presentation.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.R
@@ -39,7 +40,8 @@ import kotlin.math.roundToInt
 @Composable
 fun WeatherInfoCard(
     state: UiDataState,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onLocationClick: () -> Unit
 ) {
 
     val backgroundColor = state
@@ -84,7 +86,9 @@ fun WeatherInfoCard(
                     Text(
                         text = "My Location",
                         color = data.weatherCondition.textColor,
-                        fontSize = 28.sp
+                        fontSize = 28.sp,
+                        modifier = Modifier
+                            .clickable(onClick = onLocationClick)
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                     Image(

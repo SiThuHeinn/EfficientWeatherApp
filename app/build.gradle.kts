@@ -85,4 +85,8 @@ dependencies {
 
     // GPS Location
     implementation(libs.gms.play.service)
+
+    // Moshi
+    implementation(libs.moshi)
+    kapt(libs.moshi.codegen)
 }

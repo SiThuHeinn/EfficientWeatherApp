@@ -56,7 +56,9 @@ class MainActivity : ComponentActivity() {
 
                     WeatherInfoCard(
                         state = vm.state
-                    )
+                    ) {
+                        vm.fetchWeatherInfo()
+                    }
 
                     if (vm.state.isLoading) {
                         CircularProgressIndicator(

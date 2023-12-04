@@ -26,6 +26,8 @@ viewModelCompose = "2.4.1"
 androidxAnnotation = "1.7.0"
 threetenbpVersion = "1.4.6"
 playServicesLocationVersion = "20.0.0"
+moshiVersion = "1.14.0"
+roomVersion = "2.6.1"
 
 [libraries]
 androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -64,8 +66,18 @@ logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-intercep
 
 threetenbp = { group = "com.jakewharton.threetenabp", name = "threetenabp", version.ref = "threetenbpVersion" }
 
+## Moshi
+moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshiVersion" }
+moshi-codegen = { group = "com.squareup.moshi", name = "moshi-kotlin-codegen", version.ref = "moshiVersion" }
+
 ## gms play-service
 gms-play-service = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocationVersion" }
+
+
+## Room
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomVersion" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomVersion" }
+
 
 [bundles]
 compose = ["compose-ui", "compose-ui-graphic", "compose-ui-tooling-preview"]

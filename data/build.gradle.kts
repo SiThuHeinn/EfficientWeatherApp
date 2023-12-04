@@ -58,4 +58,11 @@ dependencies {
     implementation(libs.logging.interceptor)
 
     implementation(libs.threetenbp)
+
+    implementation(libs.moshi)
+    kapt(libs.moshi.codegen)
+
+    // Room
+    implementation(libs.room.runtime)
+    kapt(libs.room.compiler)
 }
