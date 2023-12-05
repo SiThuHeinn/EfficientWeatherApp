@@ -42,3 +42,15 @@ This module establishes design guidelines for the application. It ensures a cons
 * Moshi
 * Dagger Hilt
 * Jetpack Compose
+
+<br>
+
+
+
+### Screenshots
+
+
+![image](screenshots/one.jpg "Default Current Locations")
+![image](screenshots/two.jpg "Search your city")
+![image](screenshots/three.jpg "Weather information for selected city")
+

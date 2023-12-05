@@ -17,7 +17,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.sithuheinn.mm.effiecientweatherapp.WeatherAppTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -68,13 +68,20 @@ dependencies {
     implementation(libs.lifecycle.viewModel.compose)
 
     testImplementation(libs.test.junit)
+    testImplementation(libs.mockk)
+    testImplementation(libs.truth)
     androidTestImplementation(libs.bundles.android.tests)
+    androidTestImplementation(libs.androidx.test.runner)
     debugImplementation(libs.bundles.debug.test)
 
     // Dagger Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
+
+    // Dagger Hilt test
+    androidTestImplementation(libs.hilt.android.testing)
+    kaptAndroidTest(libs.hilt.android.test.compiler)
 
     // Retrofit
     implementation(libs.retrofit)
@@ -89,4 +96,12 @@ dependencies {
     // Moshi
     implementation(libs.moshi)
     kapt(libs.moshi.codegen)
+
+
+    // Room
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    kapt(libs.room.compiler)
+    testImplementation(libs.room.testing)
+
 }

@@ -28,6 +28,9 @@ threetenbpVersion = "1.4.6"
 playServicesLocationVersion = "20.0.0"
 moshiVersion = "1.14.0"
 roomVersion = "2.6.1"
+testRunnerVersion = "1.4.0"
+mockkVersion = "1.12.1"
+truthVersion = "1.1.4"
 
 [libraries]
 androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -37,7 +40,9 @@ appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "a
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 test-junit = { group = "junit", name = "junit", version.ref = "junit" }
 android-test-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidJunit" }
-android-test-espresso-core = { group = "androidx.text.espresso", name = "espresso-core", version.ref = "espressoCore" }
+android-test-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "testRunnerVersion" }
+
 
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
@@ -58,6 +63,8 @@ hilt-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", vers
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltCompose"}
 hilt-lifecycle-viewModel = { group = "androidx.hilt", name = "hilt-lifecycle-viewmodel", version.ref = "hiltLifecycleViewModel" }
 javax-inject = { group = "javax.inject", name = "javax.inject", version.ref = "javaxInject"}
+hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hiltVersion" }
+hilt-android-test-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hiltVersion" }
 
 ## Retrofit
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
@@ -78,6 +85,11 @@ gms-play-service = { group = "com.google.android.gms", name = "play-services-loc
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomVersion" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomVersion" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomVersion" }
+room-testing = { group = "androidx.room", name = "room-testing", version.ref = "roomVersion"}
+
+
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockkVersion"}
+truth = { group = "com.google.truth", name = "truth", version.ref = "truthVersion" }
 
 
 [bundles]
