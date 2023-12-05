@@ -42,6 +42,7 @@ This module establishes design guidelines for the application. It ensures a cons
 * Moshi
 * Dagger Hilt
 * Jetpack Compose
+* Room Testing
 
 <br>
 
