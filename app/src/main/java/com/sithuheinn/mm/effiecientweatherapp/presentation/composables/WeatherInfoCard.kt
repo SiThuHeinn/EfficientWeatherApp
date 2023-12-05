@@ -40,6 +40,7 @@ import kotlin.math.roundToInt
 @Composable
 fun WeatherInfoCard(
     state: UiDataState,
+    city: String? = null,
     modifier: Modifier = Modifier,
     onLocationClick: () -> Unit
 ) {
@@ -84,7 +85,7 @@ fun WeatherInfoCard(
                     Spacer(modifier = Modifier.height(16.dp))
 
                     Text(
-                        text = "My Location",
+                        text = if (city.isNullOrEmpty()) "My Location" else city,
                         color = data.weatherCondition.textColor,
                         fontSize = 28.sp,
                         modifier = Modifier

@@ -8,6 +8,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sithuheinn.mm.domain.Resource
 import com.sithuheinn.mm.domain.repository.WeatherRepository
+import com.sithuheinn.mm.effiecientweatherapp.citylist.CityDataListProvider
+import com.sithuheinn.mm.effiecientweatherapp.citylist.CityModel
 import com.sithuheinn.mm.location.provider.LocationProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -22,6 +24,7 @@ import javax.inject.Inject
 @HiltViewModel
 class WeatherInformationViewModel @Inject constructor(
     private val repository: WeatherRepository,
+    private val cityDataListProvider: CityDataListProvider,
     private val locationProvider: LocationProvider
 ): ViewModel() {
 
@@ -31,9 +34,14 @@ class WeatherInformationViewModel @Inject constructor(
     var state by mutableStateOf(UiDataState())
         private set
 
+    var city by mutableStateOf("")
+        private set
+
     init {
         Log.d("WeatherVM", "initiated.")
     }
+
+    fun getCityList(): List<CityModel> = cityDataListProvider.getAllCityList()
 
     fun fetchWeatherInfo() {
         viewModelScope.launch {
@@ -60,6 +68,30 @@ class WeatherInformationViewModel @Inject constructor(
 
             } ?: kotlin.run {
                 state = state.copy(isLoading = false, error = "Location data is not available. Please make sure to grant permissions and enable GPS.")
+            }
+        }
+    }
+    fun onLocationSelected(model: CityModel) {
+        if (model.lat.isEmpty() || model.lng.isEmpty()) return
+        viewModelScope.launch {
+            state = state.copy(isLoading = true, error = null)
+            when (val result = repository.getWeatherData(model.lat.toDouble(), model.lng.toDouble())) {
+                is Resource.Success -> {
+                    city = model.name
+                    state = state.copy(
+                        displayableWeatherDataModel = result.data,
+                        isLoading = false,
+                        error = null
+                    )
+                }
+
+                is Resource.Error -> {
+                    state = state.copy(
+                        displayableWeatherDataModel = null,
+                        isLoading = false,
+                        error = result.message
+                    )
+                }
             }
         }
     }
